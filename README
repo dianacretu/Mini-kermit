@@ -1,0 +1,54 @@
+	*****************************************
+        *               README                  *
+        *                                       *
+        *       Nume proiect: Tema 1 PC         *
+        *       Autor: Diana Cretu              *
+        *       Grupa: 322 CC                   *
+        *       Deadline: Joi, 02.04.2018     ``*
+        *                                       *
+        *                                       *
+        *****************************************
+
+1. Ierarhia proiectului
+
+	Codul sursa este structurat in fisierele:
+		->ksender.c
+		->k.reciever
+
+
+2. Descrierea aplicatiei
+
+	Programul scris in C implementeaza protocolul KERMIT, 
+pentru transfer de fisiere.
+
+
+3. Implementare
+
+	Dupa cum se poate observa dupa rularea programului,
+recieverul are culoarea albastra, iar senderul (cand primeste 
+mesajele de ACK/NAK) are culoarea mov.
+	Intai am creat pachetul "Send Init", initializat cu 
+valorile din cerinta si trimis la reciever. Pentru primirea
+acestuia, precum si a tuturor celoralalte pachete am realizat
+un while infinit, din care se poate iesi, fie cand sunt 3 
+timeout'uri consecutive, fie cand pachetul primit este cel 
+corect (suma de control corespunde). In cazul in care suma este 
+corecta, este trimis pachetul "Y", iar in caz contrar "N".
+	Si in sender exista de asemenea un astfel de while din
+care se iese in momentul in care recieverul confirma primirea
+pachetului corect. Daca se primeste fie ACK, fie NAK se incrementeaza
+numarul de secventa.
+	Transimia se incheie in momentul in care senderul primeste
+confirmarea de la reciever ca s-a primit "End of Transimission".
+
+
+	*****************************************
+        *               END README              *
+        *                                       *
+        *       Nume proiect: Tema 1 PC         *
+        *       Autor: Diana Cretu      	*
+        *       Grupa: 322 CC                   *
+        *       Deadline: Luni, 02.04.2018	*
+        *                                       *
+        *                                       *
+        *****************************************	
