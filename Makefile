@@ -1,15 +1,10 @@
-all: build 
+all: link lib.o
 
-build: ksender kreceiver
-
-ksender: ksender.o link_emulator/lib.o
-	gcc -g ksender.o link_emulator/lib.o -o ksender
-
-kreceiver: kreceiver.o link_emulator/lib.o
-	gcc -g kreceiver.o link_emulator/lib.o -o kreceiver
+link: link.o queue.o
+	gcc -g link.o queue.o -o link -lpthread
 
 .c.o: 
-	gcc -Wall -g -c $? 
+	gcc -Wall -g -c $? -lpthread
 
 clean:
-	-rm -f *.o ksender kreceiver 
+	-rm *.o link
